@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estunahur ia</title>
+    <title>Estunaur IA</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -27,6 +28,7 @@
             overflow: hidden;
             width: 90%; /* Ancho adaptable */
             max-width: 600px; /* Ancho máximo */
+            flex-grow: 1; /* Para que el contenedor crezca */
         }
         h1 {
             color: #333;
@@ -40,10 +42,11 @@
             width: 100%;
             height: calc(100vh - 150px); /* Altura adaptable */
             border: none;
+            margin-bottom: 20px; /* Espacio adicional en la parte inferior */
         }
         @media (max-width: 600px) {
             iframe {
-                height: calc(100vh - 100px); /* Ajustar altura en pantallas pequeñas */
+                height: calc(100vh - 120px); /* Ajustar altura en pantallas pequeñas */
             }
         }
         .theme-toggle {
@@ -59,15 +62,31 @@
         body.dark .theme-toggle {
             color: white; /* Color del ícono en tema oscuro */
         }
+        footer {
+            background-color: #f0f0f0; /* Color de fondo del footer */
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            transition: background-color 0.3s; /* Transición suave para el footer */
+        }
+        body.dark footer {
+            background-color: #444; /* Color de fondo del footer en tema oscuro */
+        }
     </style>
 </head>
 <body>
     <button class="theme-toggle" id="themeToggle">🌞</button>
     <div class="container">
         <h1>Estunaur IA.</h1>
-      <h6>Un proyecto de Alan Acosta.</h6> 
+        <h6>Un proyecto de Alan Acosta.</h6> 
         <iframe src="https://you.com/" allowfullscreen></iframe>
     </div>
+    <footer>
+        <p>Gracias por utilizar la app. <br>
+        esta app fue desarrollada por un alumno de la Unahur.</p>
+    </footer>
 
     <script>
         const themeToggle = document.getElementById('themeToggle');
@@ -79,6 +98,5 @@
             themeToggle.textContent = isDark ? '🌜' : '🌞'; // Cambiar ícono
         });
     </script>
-   
 </body>
 </html>
