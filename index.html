@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web con Copilot</title>
+    <title>Estunahur ia</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Altura completa de la ventana */
+            height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #f0f0f0; /* Color de fondo claro */
             font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s; /* Transición suave */
+        }
+        body.dark {
+            background-color: #333; /* Color de fondo oscuro */
+            color: white; /* Color de texto claro */
         }
         .container {
             text-align: center;
             background-color: white;
-            border-radius: 12px; /* Bordes redondeados para parecer una app */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para un mejor diseño */
-            overflow: hidden; /* Para que el iframe no sobresalga */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             width: 90%; /* Ancho adaptable */
-            height: 100%; /* Altura completa del contenedor */
-            max-width: 800px; /* Ancho máximo para pantallas grandes */
+            max-width: 600px; /* Ancho máximo */
         }
         h1 {
             color: #333;
@@ -30,20 +34,46 @@
         }
         iframe {
             width: 100%;
-            height: calc(100vh - 60px); /* Altura del iframe ajustada para ocupar el resto de la pantalla */
-            border: none; /* Sin borde */
+            height: calc(100vh - 150px); /* Altura adaptable */
+            border: none;
         }
         @media (max-width: 600px) {
             iframe {
-                height: calc(100vh - 60px); /* Ajustar altura en pantallas pequeñas */
+                height: calc(100vh - 100px); /* Ajustar altura en pantallas pequeñas */
             }
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        body.dark .theme-toggle {
+            color: white; /* Color del ícono en tema oscuro */
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle">🌞</button>
     <div class="container">
-        <h1>Bienvenido a Mi Sitio Web</h1>
+        <h1>Estunaur IA.</h1>
         <iframe src="https://you.com/" allowfullscreen></iframe>
     </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        let isDark = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            document.body.classList.toggle('dark', isDark);
+            themeToggle.textContent = isDark ? '🌜' : '🌞'; // Cambiar ícono
+        });
+    </script>
+    <br><center><p>Un proyecto de Alan Acosta.</p></center>
 </body>
 </html>
